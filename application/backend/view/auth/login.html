@@ -2,21 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>后台管理</title>
     <link href="__LAYUI__/css/layui.css" rel="stylesheet">
     <link href="__CSS__/login.css" rel="stylesheet">
 </head>
 <body>
-
 <div class="layui-nav">
 </div>
-
 <div class="layui-container">
-    <form class="layui-form" action="">
+    <form class="layui-form" action="<{:url('backend/auth/login')}>" method="POST">
         <div class="layui-form-item layui-form-item1">
             <label class="layui-form-label"><i class="layui-icon">&#xe612;</i>  </label>
             <div class="layui-input-block">
-                <input type="text" name="title" required  lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
+                <input type="text" name="username" required  lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item layui-form-item1">
@@ -26,10 +24,13 @@
             </div>
         </div>
         <div class="layui-form-item">
+            <{:token()}>
             <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
         </div>
     </form>
 </div>
+<input type="hidden" class="error" value="<{$message}>">
 <script src="__LAYUI__/layui.js" charset="utf-8"></script>
+<script src="__JS__/backend_main.js"></script>
 </body>
 </html>

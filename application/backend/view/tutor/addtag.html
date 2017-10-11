@@ -1,0 +1,51 @@
+<div class="add_btn">
+    <div class="btn_group">
+        <a href="<{:url('/backend/tutor/tags')}>"><i class="layui-icon">&#xe65c;</i> 返回</a>
+    </div>
+</div>
+<br/>
+<form class="layui-form" action="">
+    <div class="layui-form-item">
+        <label class="layui-form-label">标签名称</label>
+        <div class="layui-input-block">
+            <input name="name" lay-verify="name" autocomplete="off" placeholder="请输入名称" class="layui-input" type="text">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否启用</label>
+        <div class="layui-input-block">
+            <input name="status" checked="" lay-skin="switch" lay-text="ON|OFF" type="checkbox">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">首页显示</label>
+        <div class="layui-input-block">
+            <input checked="" name="show" lay-skin="switch" lay-filter="switchTest" lay-text="ON|OFF" type="checkbox">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-block">
+            <input name="sort" lay-verify="sort" autocomplete="off"  class="layui-input" type="text">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form
+                ,layer = layui.layer
+        form.verify({
+            name: function(value){
+                if(!value){
+                    return '名称不能为空';
+                }
+            }
+        });
+    });
+</script>

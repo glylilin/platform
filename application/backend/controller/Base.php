@@ -14,6 +14,7 @@ class Base extends  \think\Controller{
         'auth'
     ];
     public function auth(){
+
         if(!Session::get("userinfo")){
             $this->error("请登录……",Url::build("/backend/auth/login"));
         }
